@@ -29,9 +29,12 @@ class SignupScreen : AppCompatActivity() {
             Log.d("land", "Password: $password")
 
             if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                binding.edtxtUsername.error = "Please enter your username"
-                binding.edtxtEmail.error = "Please enter your email"
-                binding.edtxtPassword.error = "Please enter your password"
+                if(username.isEmpty())
+                    binding.edtxtUsername.error = "Please enter your username"
+                if(email.isEmpty())
+                    binding.edtxtEmail.error = "Please enter your email"
+                if(password.isEmpty())
+                    binding.edtxtPassword.error = "Please enter your password"
             } else {
 
                 val apiService = RestApiService()
@@ -51,9 +54,6 @@ class SignupScreen : AppCompatActivity() {
                     }
                 }
 
-//                val intent = Intent(this, SplashActivity::class.java)
-//                startActivity(intent)
-//                finish()
             }
         }
         setContentView(binding.root)

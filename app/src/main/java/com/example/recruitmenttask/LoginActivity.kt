@@ -27,8 +27,11 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.edtxtPassword.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                binding.edtxtEmail.error = "Please enter your email"
-                binding.edtxtPassword.error = "Please enter your password"
+                if(email.isEmpty())
+                    binding.edtxtEmail.error = "Please enter your email"
+                if(password.isEmpty())
+                    binding.edtxtPassword.error = "Please enter your password"
+
             } else {
 
                 val apiService = RestApiService()
